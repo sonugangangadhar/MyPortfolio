@@ -883,6 +883,17 @@ p {
   top: 20px;
 }
 
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .experience-logo,
+  .experience-logo-hp {
+    position: static; /* Removes absolute positioning */
+    width: 120px; /* Adjusts width to fit */
+    margin: 10px auto; /* Centers the logo */
+    display: block; /* Ensures proper alignment */
+  }
+}
+
 .experience-content h4 i {
   font-size: 1.6rem;
   margin-right: 10px;
