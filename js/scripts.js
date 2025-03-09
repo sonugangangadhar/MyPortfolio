@@ -160,8 +160,13 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.remove("modal-open"); // Enable scrolling
     }
 
-    closeModal.addEventListener("click", closeModalFunction);
-    closeModalButton.addEventListener("click", closeModalFunction);
+    if (closeModal) {
+        closeModal.addEventListener("click", closeModalFunction); // Close button in top-right
+    }
+
+    if (closeModalButton) {
+        closeModalButton.addEventListener("click", closeModalFunction); // Close button at the bottom
+    }
 
     window.addEventListener("click", (e) => {
         if (e.target === modal) {
