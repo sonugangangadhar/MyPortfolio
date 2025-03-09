@@ -244,7 +244,6 @@ h1,
   background: #8d774e;
 }
 
-/* Modal Styles */
 #project-modal {
   display: none; /* Initially hidden */
   position: fixed;
@@ -256,20 +255,23 @@ h1,
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  overflow-y: auto; /* Allow scrolling */
 }
 
 #project-modal .modal-content {
   display: flex;
   flex-direction: column; /* Align content in a column */
   align-items: center; /* Center-align content horizontally */
-  justify-content: center; /* Center-align content vertically */
+  justify-content: flex-start; /* Allow content to expand */
   background: #fff;
   padding: 20px;
   border-radius: 5px;
   max-width: 800px;
-  width: 100%;
+  width: 90%;
   box-sizing: border-box;
   position: relative; /* Ensures the close button is positioned relative to the modal content */
+  max-height: 90vh; /* Prevent modal from exceeding the viewport */
+  overflow-y: auto; /* Allow internal scrolling */
 }
 
 #modal-title {
@@ -7025,4 +7027,60 @@ html {
   font-family: system-ui;
   font-weight: 600;
   font-size: 0.9rem;
+}
+/* Responsive Fixes for Mobile View */
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+
+    /* Stack elements vertically */
+    .projects-container, .skills-grid, .experience-timeline {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-card, .experience-item, .skill-item {
+        width: 90%; /* Reduce width for better fit */
+        margin-bottom: 15px; /* Add spacing between elements */
+    }
+
+    /* Adjust font sizes */
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    /* Make images responsive */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Improve button usability */
+    .btn {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    /* Adjust sidebar navigation */
+    #sidebar-wrapper {
+        width: 100%;
+        transform: translateX(100%);
+    }
+
+    #sidebar-wrapper.active {
+        transform: translateX(0);
+    }
 }
